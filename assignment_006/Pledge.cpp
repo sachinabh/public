@@ -108,20 +108,20 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     hdc = BeginPaint(hwnd, &ps);
     SetBkColor(hdc, RGB(0, 0, 0));
     i = 0;
-    wsprintf(szPledge[i], TEXT("Pledge$"));
-    wsprintf(szPledge[i], TEXT("- - - - - - - -$"));
-    wsprintf(szPledge[i], TEXT("India is my country.$"));
-    wsprintf(szPledge[i], TEXT("All Indians are my Brothers and Sisters. $"));
-    wsprintf(szPledge[i], TEXT("I love my country $"));
-    wsprintf(szPledge[i], TEXT("and I am proud of $"));
-    wsprintf(szPledge[i], TEXT("its rich and varied heritage. $"));
-    wsprintf(szPledge[i], TEXT("I shall always strive $"));
-    wsprintf(szPledge[i], TEXT("to be worthy of it. $"));
-    wsprintf(szPledge[i], TEXT("I shall give my parents, teachers and all elders respect$"));
-    wsprintf(szPledge[i], TEXT("and treat everyone with courtesy. $"));
-    wsprintf(szPledge[i], TEXT("To my country and my people, I pledge my devotion. $"));
-    wsprintf(szPledge[i], TEXT("In their well being and prosperity alone, $"));
-    wsprintf(szPledge[i], TEXT("lies my happiness. $"));
+    wsprintf(szPledge[i], TEXT("Pledge"));
+    wsprintf(szPledge[++i], TEXT("- - - - - - - -"));
+    wsprintf(szPledge[++i], TEXT("India is my country."));
+    wsprintf(szPledge[++i], TEXT("All Indians are my Brothers and Sisters. "));
+    wsprintf(szPledge[++i], TEXT("I love my country "));
+    wsprintf(szPledge[++i], TEXT("and I am proud of "));
+    wsprintf(szPledge[++i], TEXT("its rich and varied heritage. "));
+    wsprintf(szPledge[++i], TEXT("I shall always strive "));
+    wsprintf(szPledge[++i], TEXT("to be worthy of it. "));
+    wsprintf(szPledge[++i], TEXT("I shall give my parents, teachers and all elders respect"));
+    wsprintf(szPledge[++i], TEXT("and treat everyone with courtesy. "));
+    wsprintf(szPledge[++i], TEXT("To my country and my people, I pledge my devotion. "));
+    wsprintf(szPledge[++i], TEXT("In their well being and prosperity alone, "));
+    wsprintf(szPledge[++i], TEXT("lies my happiness. "));
     NbLines = i;
     for (i = 0; i <= NbLines; i++)
     {
