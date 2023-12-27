@@ -1,5 +1,8 @@
 #include<iostream>
 #include<fstream>
+#include<vector>
+#include<string>
+#include<sstream>
 using namespace std;
 int main()
 {
@@ -32,15 +35,60 @@ int main()
   */
   fstream inputfile;
   inputfile.open("input.txt", ios::in);
+  int MAX_RED = 12, MAX_GREEN = 13, MAX_BLUE = 14;
+  int ans = 0;
   if (inputfile.is_open())
   {
     string curline;
-    while (getline(inputfile, curline)) 
+    while (getline(inputfile, curline))
     {
       cout << curline << endl;
-
+      // consider following example
+      // Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+      stringstream ss(curline);
+      string word;
+      vector<string> listOfWords;
+      int redCount = 0, greenCount = 0, blueCount = 0;
+      while (ss >> word)
+      {
+        listOfWords.push_back(word);
+      }
+      int gameid = stoi(listOfWords[1]);
+      bool possibleSubset = true;
+      for (int i = 0; i < listOfWords.size() && possibleSubset; ++i)
+      {
+        //cout << i << "-" << listOfWords[i] << " ";
+        if (listOfWords[i].find("red") != string::npos)
+        {
+          if (stoi(listOfWords[i - 1]) > MAX_RED) 
+          {
+            possibleSubset = false;
+          }
+        }
+        if (listOfWords[i].find("green") != string::npos)
+        {
+          if (stoi(listOfWords[i - 1]) > MAX_GREEN)
+          {
+            possibleSubset = false;
+          }
+        }
+        if (listOfWords[i].find("blue") != string::npos)
+        {
+          if (stoi(listOfWords[i - 1]) > MAX_BLUE)
+          {
+            possibleSubset = false;
+          }
+        }
+      }
+      //cout << "gameid = " << gameid << " ";
+      if (possibleSubset)
+      {
+        ans += gameid;
+      }
+      cout << endl;
     }
     inputfile.close();
   }
+  cout << "ans = " << ans << " ";
   return 0;
 }
